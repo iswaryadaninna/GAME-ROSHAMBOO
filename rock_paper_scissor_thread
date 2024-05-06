@@ -1,0 +1,72 @@
+import random
+
+com_sum=0
+play_sum=0
+
+while True:
+
+    choices=["scissor","rock","paper","thread"]
+    player=None
+
+    while player not in choices:
+        player=input("enter the choice (scissor,rock,paper,thread): ").lower()
+    computer=random.choice(choices)
+
+    print("computer: ",computer+"\n"+"player: ",player)
+
+    if(player==computer):
+        print("IT'S A TIE.... \n PLAY AGAIN ")
+
+
+    elif computer=="scissor" and (player=="rock" or player=="paper" or player=="thread"):
+        if(player=="thread"):
+            print("YOU LOSE...!!!")
+            com_sum+=1
+        elif("scissor" and "paper"):
+            print("YOU LOSE...!!!")
+            com_sum+=1
+        elif( player=="rock"):
+            print("YOU WON...!!!")
+            play_sum+=1
+
+    elif computer=="rock" and (player=="scissor" or player=="paper" or player=="thread"):
+        if(player=="thread"):
+            print("YOU WON...!!!")
+            play_sum+=1
+        elif(player=="paper"):
+            print("YOU WON...!!!")
+            play_sum+=1
+        elif(player=="scissor"):
+            print("YOU LOSE...!!!")
+            com_sum+=1
+
+    elif computer=="thread" and (player=="scissor" or player=="paper" or player=="rock"):
+        if(player=='rock'):
+            print("YOU LOSE...!!!")
+            com_sum+=1
+        elif(player=="paper"):
+            print("YOU LOSE...!!!")
+            com_sum+=1
+        elif(player=="scissor"):
+            print("YOU WON...!!!")
+            play_sum+=1
+
+    elif computer=="paper" and (player=="scissor" or player=="rock" or player=="thread"):
+        if(player=="thread"):
+            print("YOU WON...!!!")
+            play_sum+=1
+        elif(player=="rock"):
+            print("YOU LOSE...!!!")
+            com_sum+=1
+        elif(player=="scissor"):
+            print("YOU WON...!!!")
+            play_sum+=1
+            
+    y_or_n=input("please enter yes or no to continue the game: ").lower()
+    if y_or_n!="yes":
+        break
+ 
+print("computer score : ",com_sum)
+print("player score : ",play_sum)
+
+print("BYE..")
